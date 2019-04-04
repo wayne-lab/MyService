@@ -5,7 +5,7 @@ before_install:
 install:
   - ./script/install_swiftlint.sh
 after_install:
-
+  - brew install swiftlint
 os:
   - osx
 osx_image:
@@ -13,7 +13,7 @@ osx_image:
 language:
   - swift
 script:
-  - bundle update  
+  - bundle update
   - bundle exec fastlane test
   - bundle exec danger
   - swiftlint
