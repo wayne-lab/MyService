@@ -4,8 +4,9 @@ before_install:
   # - gem install bundler
 install:
   - brew install swiftlint
-after_install:
   - bundle update
+after_install:
+
 os:
   - osx
 osx_image:
