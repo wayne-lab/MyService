@@ -3,7 +3,7 @@ before_install:
   - git fetch --depth=1000000
   - gem install bundler
 install:
-  - ./install_swiftlint.sh
+  - ./script/install_swiftlint.sh
 after_install:
   - bundle update
 os:
