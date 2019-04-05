@@ -14,6 +14,6 @@ osx_image:
 language:
   - swift
 script:
-  - bundle exec fastlane test
+  - bundle exec fastlane scan
   - bundle exec danger
   - swiftlint
