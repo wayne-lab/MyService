@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wayne Hsiao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for MyService.
 FOUNDATION_EXPORT double MyServiceVersionNumber;

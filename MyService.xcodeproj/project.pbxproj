@@ -10,6 +10,11 @@
 		B0B95D992255202000A40158 /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B95D8F2255201F00A40158 /* MyService.framework */; };
 		B0B95D9E2255202000A40158 /* MyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95D9D2255202000A40158 /* MyServiceTests.swift */; };
 		B0B95DA02255202000A40158 /* MyService.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B95D922255201F00A40158 /* MyService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0B95DAF22566D6600A40158 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95DAE22566D6600A40158 /* Error.swift */; };
+		B0B95DB22256720200A40158 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95DB12256720200A40158 /* Service.swift */; };
+		B0B95DB622573C8600A40158 /* ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95DB522573C8600A40158 /* ServiceTest.swift */; };
+		B0B95DB922573DBF00A40158 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95DB822573DBF00A40158 /* MockURLSessionDataTask.swift */; };
+		B0B95DBA22573DBF00A40158 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95DB722573DBF00A40158 /* MockURLSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,12 @@
 		B0B95D982255202000A40158 /* MyServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B95D9D2255202000A40158 /* MyServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServiceTests.swift; sourceTree = "<group>"; };
 		B0B95D9F2255202000A40158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0B95DAE22566D6600A40158 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		B0B95DB022566E5000A40158 /* MyService.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MyService.xcconfig; sourceTree = "<group>"; };
+		B0B95DB12256720200A40158 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B0B95DB522573C8600A40158 /* ServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTest.swift; sourceTree = "<group>"; };
+		B0B95DB722573DBF00A40158 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		B0B95DB822573DBF00A40158 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +64,7 @@
 		B0B95D852255201F00A40158 = {
 			isa = PBXGroup;
 			children = (
+				B0B95DB022566E5000A40158 /* MyService.xcconfig */,
 				B0B95D912255201F00A40158 /* MyService */,
 				B0B95D9C2255202000A40158 /* MyServiceTests */,
 				B0B95D902255201F00A40158 /* Products */,
@@ -72,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				B0B95D922255201F00A40158 /* MyService.h */,
+				B0B95DAE22566D6600A40158 /* Error.swift */,
+				B0B95DB12256720200A40158 /* Service.swift */,
 				B0B95D932255201F00A40158 /* Info.plist */,
 			);
 			path = MyService;
@@ -80,10 +94,21 @@
 		B0B95D9C2255202000A40158 /* MyServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				B0B95DBB22573DCF00A40158 /* MockObjects */,
 				B0B95D9D2255202000A40158 /* MyServiceTests.swift */,
+				B0B95DB522573C8600A40158 /* ServiceTest.swift */,
 				B0B95D9F2255202000A40158 /* Info.plist */,
 			);
 			path = MyServiceTests;
+			sourceTree = "<group>";
+		};
+		B0B95DBB22573DCF00A40158 /* MockObjects */ = {
+			isa = PBXGroup;
+			children = (
+				B0B95DB722573DBF00A40158 /* MockURLSession.swift */,
+				B0B95DB822573DBF00A40158 /* MockURLSessionDataTask.swift */,
+			);
+			path = MockObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +174,7 @@
 				TargetAttributes = {
 					B0B95D8E2255201F00A40158 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 					B0B95D972255202000A40158 = {
 						CreatedOnToolsVersion = 10.2;
@@ -206,7 +232,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -215,6 +241,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B95DAF22566D6600A40158 /* Error.swift in Sources */,
+				B0B95DB22256720200A40158 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +250,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B95DBA22573DBF00A40158 /* MockURLSession.swift in Sources */,
+				B0B95DB922573DBF00A40158 /* MockURLSessionDataTask.swift in Sources */,
 				B0B95D9E2255202000A40158 /* MyServiceTests.swift in Sources */,
+				B0B95DB622573C8600A40158 /* ServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +270,7 @@
 /* Begin XCBuildConfiguration section */
 		B0B95DA12255202000A40158 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -303,6 +335,7 @@
 		};
 		B0B95DA22255202000A40158 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -361,11 +394,11 @@
 		};
 		B0B95DA42255202000A40158 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -378,7 +411,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.MyService;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -386,11 +421,11 @@
 		};
 		B0B95DA52255202000A40158 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -403,6 +438,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.MyService;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -411,9 +447,9 @@
 		};
 		B0B95DA72255202000A40158 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MyServiceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -429,9 +465,10 @@
 		};
 		B0B95DA82255202000A40158 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94MBHXKUB6;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MyServiceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
