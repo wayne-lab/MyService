@@ -45,7 +45,7 @@ public class Service {
         self.session = session
     }
 
-    func post(url: URL,
+    public func post(url: URL,
               body: [AnyHashable: Any]? = nil,
               overrideHeader: [String: String]? = nil,
               completionHandler: @escaping NetworkCompletionHandler) {
@@ -80,7 +80,7 @@ public class Service {
         }
     }
 
-    func get(url: URL,
+    public func get(url: URL,
              overrideHeader: [String: String]? = nil,
              completionHandler: @escaping NetworkCompletionHandler) {
 
