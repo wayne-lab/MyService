@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6A167392335F99600E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A167382335F99600E1143F /* Services.plist */; };
+		A6A1673B2335FCEC00E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A1673A2335FCEC00E1143F /* Services.plist */; };
 		B0B95D992255202000A40158 /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B95D8F2255201F00A40158 /* MyService.framework */; };
 		B0B95D9E2255202000A40158 /* MyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95D9D2255202000A40158 /* MyServiceTests.swift */; };
 		B0B95DA02255202000A40158 /* MyService.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B95D922255201F00A40158 /* MyService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6A167382335F99600E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
+		A6A1673A2335FCEC00E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
 		B0B95D8F2255201F00A40158 /* MyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B95D922255201F00A40158 /* MyService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyService.h; sourceTree = "<group>"; };
 		B0B95D932255201F00A40158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B95DB022566E5000A40158 /* MyService.xcconfig */,
+				A6A1673A2335FCEC00E1143F /* Services.plist */,
 				B0B95D912255201F00A40158 /* MyService */,
 				B0B95D9C2255202000A40158 /* MyServiceTests */,
 				B0B95D902255201F00A40158 /* Products */,
@@ -98,6 +103,7 @@
 				B0B95D9D2255202000A40158 /* MyServiceTests.swift */,
 				B0B95DB522573C8600A40158 /* ServiceTest.swift */,
 				B0B95D9F2255202000A40158 /* Info.plist */,
+				A6A167382335F99600E1143F /* Services.plist */,
 			);
 			path = MyServiceTests;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A1673B2335FCEC00E1143F /* Services.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A167392335F99600E1143F /* Services.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

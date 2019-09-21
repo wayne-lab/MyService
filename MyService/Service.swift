@@ -105,3 +105,58 @@ public class Service {
         }
     }
 }
+
+extension Service {
+    static func servicesFromPlist(_ bundle: Bundle = Bundle.main) -> [String: String]? {
+        
+        guard let resourcePath = bundle.path(forResource: "Services", ofType: "plist"),
+            let resource = FileManager.default.contents(atPath: resourcePath) else {
+                return nil
+        }
+        do {
+            var format = PropertyListSerialization.PropertyListFormat.xml
+            guard let services = try PropertyListSerialization.propertyList(from: resource, options: .mutableContainersAndLeaves, format: &format) as? [String: String] else {
+                return nil
+            }
+            return services
+        } catch {
+            return nil
+        }
+    }
+    
+    static func getPath(_ key:String,
+                        token: [String: String]? = nil,
+                        services: [String: String]? = servicesFromPlist()) -> String? {
+        
+        func valueFromSymbol(_ symbol: String) -> String {
+            var value = symbol
+            value.removeFirst()
+            value.removeLast()
+            return value
+        }
+        
+        func symbolFromValue(_ value: String) -> String {
+            return "{\(value)}"
+        }
+        
+        guard let services = services,
+            let service = services[key],
+            let host = service.split(separator: "/").first else {
+            return nil
+        }
+        
+        let hostKey = valueFromSymbol(String(host))
+        guard let hostValue = services[hostKey] else {
+            return nil
+        }
+        
+        var urlPath = service.replacingOccurrences(of: host, with: hostValue)
+        if let token = token {
+            for keyValue in token {
+                urlPath = urlPath.replacingOccurrences(of: symbolFromValue(keyValue.key), with: keyValue.value)
+            }
+        }
+
+        return urlPath
+    }
+}
