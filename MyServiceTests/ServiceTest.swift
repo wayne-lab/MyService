@@ -20,6 +20,21 @@ class ServicesTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testPlistParser() {
+        let mockBundle = Bundle(identifier: "com.wayne.MyServiceTests")!
+        XCTAssertNotNil(Service.servicesFromPlist(mockBundle))
+    }
+    
+    func testURLParser() {
+        let mockBundle = Bundle(identifier: "com.wayne.MyServiceTests")!
+        let services = Service.servicesFromPlist(mockBundle)
+        let path = Service.getPath("mockSearch",
+                                   token: ["keyword": "test", "pageSize": "10"],
+                                   services: services)
+        XCTAssertEqual(path,
+                       "http://www.mock.com/v1/search?keyword=test&pageSize=10")
+    }
 
     func testURL() {
         let service = Service(session: session)
