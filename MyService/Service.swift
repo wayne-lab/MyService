@@ -107,7 +107,7 @@ public class Service {
 }
 
 extension Service {
-    static func servicesFromPlist(_ bundle: Bundle = Bundle.main) -> [String: String]? {
+    static public func servicesFromPlist(_ bundle: Bundle = Bundle.main) -> [String: String]? {
         
         guard let resourcePath = bundle.path(forResource: "Services", ofType: "plist"),
             let resource = FileManager.default.contents(atPath: resourcePath) else {
@@ -124,7 +124,7 @@ extension Service {
         }
     }
     
-    static func getPath(_ key:String,
+    static public func getPath(_ key:String,
                         token: [String: String]? = nil,
                         services: [String: String]? = servicesFromPlist()) -> String? {
         
