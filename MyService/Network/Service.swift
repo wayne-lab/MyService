@@ -36,6 +36,7 @@ extension URLRequest: URLRequestProtocol {
 
 }
 
+@objcMembers
 public class Service {
 
     let session: URLSessionProtocol

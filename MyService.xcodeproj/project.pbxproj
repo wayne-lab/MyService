@@ -8,6 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		A6A167392335F99600E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A167382335F99600E1143F /* Services.plist */; };
+		A6BA10E2233E04BE00A81A94 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA10E1233E04BE00A81A94 /* KeychainWrapper.swift */; };
+		A6BA10E7233E06C300A81A94 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BA10E6233E06C300A81A94 /* Security.framework */; };
+		A6BA10EE233E0F6A00A81A94 /* KeychainQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA10ED233E0F6A00A81A94 /* KeychainQueryable.swift */; };
+		A6BA111F233E2C6E00A81A94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA111E233E2C6E00A81A94 /* AppDelegate.swift */; };
+		A6BA1121233E2C6E00A81A94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA1120233E2C6E00A81A94 /* SceneDelegate.swift */; };
+		A6BA1123233E2C6E00A81A94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA1122233E2C6E00A81A94 /* ViewController.swift */; };
+		A6BA1126233E2C6E00A81A94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6BA1124233E2C6E00A81A94 /* Main.storyboard */; };
+		A6BA1128233E2C6E00A81A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6BA1127233E2C6E00A81A94 /* Assets.xcassets */; };
+		A6BA112B233E2C6E00A81A94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6BA1129233E2C6E00A81A94 /* LaunchScreen.storyboard */; };
+		A6BA1136233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA1135233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift */; };
+		A6BA113F234093A500A81A94 /* Foundation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA113E234093A500A81A94 /* Foundation+.swift */; };
+		A6BA11412340956B00A81A94 /* GenericPasswordQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA11402340956B00A81A94 /* GenericPasswordQueryable.swift */; };
+		A6BA11432340958500A81A94 /* InternetPasswordQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA11422340958500A81A94 /* InternetPasswordQueryable.swift */; };
+		A6BA11452340959E00A81A94 /* CertificateQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA11442340959E00A81A94 /* CertificateQueryable.swift */; };
+		A6BA1147234095B200A81A94 /* IdentityQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA1146234095B200A81A94 /* IdentityQueryable.swift */; };
+		A6BA114A234096BA00A81A94 /* CryptographicQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA1149234096BA00A81A94 /* CryptographicQueryable.swift */; };
+		A6BA114C2340A26400A81A94 /* InternetPasswordQueryableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA114B2340A26400A81A94 /* InternetPasswordQueryableTests.swift */; };
 		B0B95D992255202000A40158 /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B95D8F2255201F00A40158 /* MyService.framework */; };
 		B0B95D9E2255202000A40158 /* MyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95D9D2255202000A40158 /* MyServiceTests.swift */; };
 		B0B95DA02255202000A40158 /* MyService.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B95D922255201F00A40158 /* MyService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,6 +36,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A6BA1132233E2C6F00A81A94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0B95D862255201F00A40158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6BA111B233E2C6E00A81A94;
+			remoteInfo = MyServiceDemo;
+		};
+		A6BA11512340ADF000A81A94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0B95D862255201F00A40158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B95D8E2255201F00A40158;
+			remoteInfo = MyService;
+		};
 		B0B95D9A2255202000A40158 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0B95D862255201F00A40158 /* Project object */;
@@ -30,6 +61,27 @@
 
 /* Begin PBXFileReference section */
 		A6A167382335F99600E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
+		A6BA10E1233E04BE00A81A94 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		A6BA10E6233E06C300A81A94 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		A6BA10ED233E0F6A00A81A94 /* KeychainQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainQueryable.swift; sourceTree = "<group>"; };
+		A6BA111C233E2C6E00A81A94 /* MyServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6BA111E233E2C6E00A81A94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A6BA1120233E2C6E00A81A94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A6BA1122233E2C6E00A81A94 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6BA1125233E2C6E00A81A94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A6BA1127233E2C6E00A81A94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A6BA112A233E2C6E00A81A94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A6BA112C233E2C6E00A81A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6BA1131233E2C6F00A81A94 /* MyServiceDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyServiceDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6BA1135233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordQueryableTests.swift; sourceTree = "<group>"; };
+		A6BA1137233E2C6F00A81A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6BA113E234093A500A81A94 /* Foundation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+.swift"; sourceTree = "<group>"; };
+		A6BA11402340956B00A81A94 /* GenericPasswordQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPasswordQueryable.swift; sourceTree = "<group>"; };
+		A6BA11422340958500A81A94 /* InternetPasswordQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetPasswordQueryable.swift; sourceTree = "<group>"; };
+		A6BA11442340959E00A81A94 /* CertificateQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateQueryable.swift; sourceTree = "<group>"; };
+		A6BA1146234095B200A81A94 /* IdentityQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityQueryable.swift; sourceTree = "<group>"; };
+		A6BA1149234096BA00A81A94 /* CryptographicQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptographicQueryable.swift; sourceTree = "<group>"; };
+		A6BA114B2340A26400A81A94 /* InternetPasswordQueryableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetPasswordQueryableTests.swift; sourceTree = "<group>"; };
 		B0B95D8F2255201F00A40158 /* MyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B95D922255201F00A40158 /* MyService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyService.h; sourceTree = "<group>"; };
 		B0B95D932255201F00A40158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,10 +97,25 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A6BA1119233E2C6E00A81A94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BA112E233E2C6F00A81A94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0B95D8C2255201F00A40158 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BA10E7233E06C300A81A94 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,13 +130,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6BA10E0233E046F00A81A94 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B0B95DB12256720200A40158 /* Service.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A6BA10E3233E05B700A81A94 /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				A6BA10E1233E04BE00A81A94 /* KeychainWrapper.swift */,
+				A6BA11482340964300A81A94 /* KeychainQueryable */,
+			);
+			path = KeychainWrapper;
+			sourceTree = "<group>";
+		};
+		A6BA10E4233E05D300A81A94 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B0B95D9D2255202000A40158 /* MyServiceTests.swift */,
+				B0B95DB522573C8600A40158 /* ServiceTest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A6BA10E5233E06C300A81A94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6BA10E6233E06C300A81A94 /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6BA111D233E2C6E00A81A94 /* MyServiceDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A6BA111E233E2C6E00A81A94 /* AppDelegate.swift */,
+				A6BA1120233E2C6E00A81A94 /* SceneDelegate.swift */,
+				A6BA1122233E2C6E00A81A94 /* ViewController.swift */,
+				A6BA1124233E2C6E00A81A94 /* Main.storyboard */,
+				A6BA1127233E2C6E00A81A94 /* Assets.xcassets */,
+				A6BA1129233E2C6E00A81A94 /* LaunchScreen.storyboard */,
+				A6BA112C233E2C6E00A81A94 /* Info.plist */,
+			);
+			path = MyServiceDemo;
+			sourceTree = "<group>";
+		};
+		A6BA1134233E2C6F00A81A94 /* MyServiceDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6BA1135233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift */,
+				A6BA114B2340A26400A81A94 /* InternetPasswordQueryableTests.swift */,
+				A6BA1137233E2C6F00A81A94 /* Info.plist */,
+			);
+			path = MyServiceDemoTests;
+			sourceTree = "<group>";
+		};
+		A6BA11482340964300A81A94 /* KeychainQueryable */ = {
+			isa = PBXGroup;
+			children = (
+				A6BA10ED233E0F6A00A81A94 /* KeychainQueryable.swift */,
+				A6BA11402340956B00A81A94 /* GenericPasswordQueryable.swift */,
+				A6BA11422340958500A81A94 /* InternetPasswordQueryable.swift */,
+				A6BA11442340959E00A81A94 /* CertificateQueryable.swift */,
+				A6BA1149234096BA00A81A94 /* CryptographicQueryable.swift */,
+				A6BA1146234095B200A81A94 /* IdentityQueryable.swift */,
+			);
+			path = KeychainQueryable;
+			sourceTree = "<group>";
+		};
 		B0B95D852255201F00A40158 = {
 			isa = PBXGroup;
 			children = (
 				B0B95DB022566E5000A40158 /* MyService.xcconfig */,
 				B0B95D912255201F00A40158 /* MyService */,
 				B0B95D9C2255202000A40158 /* MyServiceTests */,
+				A6BA111D233E2C6E00A81A94 /* MyServiceDemo */,
+				A6BA1134233E2C6F00A81A94 /* MyServiceDemoTests */,
 				B0B95D902255201F00A40158 /* Products */,
+				A6BA10E5233E06C300A81A94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +219,8 @@
 			children = (
 				B0B95D8F2255201F00A40158 /* MyService.framework */,
 				B0B95D982255202000A40158 /* MyServiceTests.xctest */,
+				A6BA111C233E2C6E00A81A94 /* MyServiceDemo.app */,
+				A6BA1131233E2C6F00A81A94 /* MyServiceDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,9 +228,11 @@
 		B0B95D912255201F00A40158 /* MyService */ = {
 			isa = PBXGroup;
 			children = (
+				A6BA113E234093A500A81A94 /* Foundation+.swift */,
 				B0B95D922255201F00A40158 /* MyService.h */,
 				B0B95DAE22566D6600A40158 /* Error.swift */,
-				B0B95DB12256720200A40158 /* Service.swift */,
+				A6BA10E3233E05B700A81A94 /* KeychainWrapper */,
+				A6BA10E0233E046F00A81A94 /* Network */,
 				B0B95D932255201F00A40158 /* Info.plist */,
 			);
 			path = MyService;
@@ -97,8 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B95DBB22573DCF00A40158 /* MockObjects */,
-				B0B95D9D2255202000A40158 /* MyServiceTests.swift */,
-				B0B95DB522573C8600A40158 /* ServiceTest.swift */,
+				A6BA10E4233E05D300A81A94 /* Network */,
 				B0B95D9F2255202000A40158 /* Info.plist */,
 				A6A167382335F99600E1143F /* Services.plist */,
 			);
@@ -128,6 +272,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A6BA111B233E2C6E00A81A94 /* MyServiceDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6BA1138233E2C6F00A81A94 /* Build configuration list for PBXNativeTarget "MyServiceDemo" */;
+			buildPhases = (
+				A6BA1118233E2C6E00A81A94 /* Sources */,
+				A6BA1119233E2C6E00A81A94 /* Frameworks */,
+				A6BA111A233E2C6E00A81A94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6BA11522340ADF000A81A94 /* PBXTargetDependency */,
+			);
+			name = MyServiceDemo;
+			productName = MyServiceDemo;
+			productReference = A6BA111C233E2C6E00A81A94 /* MyServiceDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A6BA1130233E2C6F00A81A94 /* MyServiceDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6BA113B233E2C6F00A81A94 /* Build configuration list for PBXNativeTarget "MyServiceDemoTests" */;
+			buildPhases = (
+				A6BA112D233E2C6F00A81A94 /* Sources */,
+				A6BA112E233E2C6F00A81A94 /* Frameworks */,
+				A6BA112F233E2C6F00A81A94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6BA1133233E2C6F00A81A94 /* PBXTargetDependency */,
+			);
+			name = MyServiceDemoTests;
+			productName = MyServiceDemoTests;
+			productReference = A6BA1131233E2C6F00A81A94 /* MyServiceDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B0B95D8E2255201F00A40158 /* MyService */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0B95DA32255202000A40158 /* Build configuration list for PBXNativeTarget "MyService" */;
@@ -171,10 +351,17 @@
 		B0B95D862255201F00A40158 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Wayne Hsiao";
 				TargetAttributes = {
+					A6BA111B233E2C6E00A81A94 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					A6BA1130233E2C6F00A81A94 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = A6BA111B233E2C6E00A81A94;
+					};
 					B0B95D8E2255201F00A40158 = {
 						CreatedOnToolsVersion = 10.2;
 						LastSwiftMigration = 1020;
@@ -190,6 +377,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = B0B95D852255201F00A40158;
 			productRefGroup = B0B95D902255201F00A40158 /* Products */;
@@ -198,11 +386,30 @@
 			targets = (
 				B0B95D8E2255201F00A40158 /* MyService */,
 				B0B95D972255202000A40158 /* MyServiceTests */,
+				A6BA111B233E2C6E00A81A94 /* MyServiceDemo */,
+				A6BA1130233E2C6F00A81A94 /* MyServiceDemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A6BA111A233E2C6E00A81A94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BA112B233E2C6E00A81A94 /* LaunchScreen.storyboard in Resources */,
+				A6BA1128233E2C6E00A81A94 /* Assets.xcassets in Resources */,
+				A6BA1126233E2C6E00A81A94 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BA112F233E2C6F00A81A94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0B95D8D2255201F00A40158 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,10 +448,37 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A6BA1118233E2C6E00A81A94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BA1123233E2C6E00A81A94 /* ViewController.swift in Sources */,
+				A6BA111F233E2C6E00A81A94 /* AppDelegate.swift in Sources */,
+				A6BA1121233E2C6E00A81A94 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BA112D233E2C6F00A81A94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BA114C2340A26400A81A94 /* InternetPasswordQueryableTests.swift in Sources */,
+				A6BA1136233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0B95D8B2255201F00A40158 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BA113F234093A500A81A94 /* Foundation+.swift in Sources */,
+				A6BA11412340956B00A81A94 /* GenericPasswordQueryable.swift in Sources */,
+				A6BA11452340959E00A81A94 /* CertificateQueryable.swift in Sources */,
+				A6BA10E2233E04BE00A81A94 /* KeychainWrapper.swift in Sources */,
+				A6BA10EE233E0F6A00A81A94 /* KeychainQueryable.swift in Sources */,
+				A6BA1147234095B200A81A94 /* IdentityQueryable.swift in Sources */,
+				A6BA114A234096BA00A81A94 /* CryptographicQueryable.swift in Sources */,
+				A6BA11432340958500A81A94 /* InternetPasswordQueryable.swift in Sources */,
 				B0B95DAF22566D6600A40158 /* Error.swift in Sources */,
 				B0B95DB22256720200A40158 /* Service.swift in Sources */,
 			);
@@ -264,6 +498,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A6BA1133233E2C6F00A81A94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6BA111B233E2C6E00A81A94 /* MyServiceDemo */;
+			targetProxy = A6BA1132233E2C6F00A81A94 /* PBXContainerItemProxy */;
+		};
+		A6BA11522340ADF000A81A94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0B95D8E2255201F00A40158 /* MyService */;
+			targetProxy = A6BA11512340ADF000A81A94 /* PBXContainerItemProxy */;
+		};
 		B0B95D9B2255202000A40158 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B0B95D8E2255201F00A40158 /* MyService */;
@@ -271,7 +515,104 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		A6BA1124233E2C6E00A81A94 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6BA1125233E2C6E00A81A94 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A6BA1129233E2C6E00A81A94 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6BA112A233E2C6E00A81A94 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		A6BA1139233E2C6F00A81A94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyServiceDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.hsiao.MyServiceDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A6BA113A233E2C6F00A81A94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyServiceDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.hsiao.MyServiceDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A6BA113C233E2C6F00A81A94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyServiceDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.hsiao.MyServiceDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyServiceDemo.app/MyServiceDemo";
+			};
+			name = Debug;
+		};
+		A6BA113D233E2C6F00A81A94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MyServiceDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wayne.hsiao.MyServiceDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyServiceDemo.app/MyServiceDemo";
+			};
+			name = Release;
+		};
 		B0B95DA12255202000A40158 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
@@ -401,6 +742,7 @@
 			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -431,6 +773,7 @@
 			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -460,6 +803,7 @@
 			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MyServiceTests/Info.plist;
@@ -481,6 +825,7 @@
 			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MyServiceTests/Info.plist;
@@ -500,6 +845,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A6BA1138233E2C6F00A81A94 /* Build configuration list for PBXNativeTarget "MyServiceDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6BA1139233E2C6F00A81A94 /* Debug */,
+				A6BA113A233E2C6F00A81A94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6BA113B233E2C6F00A81A94 /* Build configuration list for PBXNativeTarget "MyServiceDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6BA113C233E2C6F00A81A94 /* Debug */,
+				A6BA113D233E2C6F00A81A94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B0B95D892255201F00A40158 /* Build configuration list for PBXProject "MyService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

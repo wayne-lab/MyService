@@ -13,7 +13,7 @@ import Foundation
 //    case invalidGitHubEndpointable(endpoint: Endpoint)
 //}
 
-enum APIError: Error {
+public enum APIError: Error {
     case getAccessTokenError
     case getOperationError
     case postOperationError
