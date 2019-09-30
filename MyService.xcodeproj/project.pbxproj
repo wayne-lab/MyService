@@ -25,6 +25,9 @@
 		A6BA1147234095B200A81A94 /* IdentityQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA1146234095B200A81A94 /* IdentityQueryable.swift */; };
 		A6BA114A234096BA00A81A94 /* CryptographicQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA1149234096BA00A81A94 /* CryptographicQueryable.swift */; };
 		A6BA114C2340A26400A81A94 /* InternetPasswordQueryableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA114B2340A26400A81A94 /* InternetPasswordQueryableTests.swift */; };
+		A6BA11542340B04000A81A94 /* CertificateQueryableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA11532340B04000A81A94 /* CertificateQueryableTests.swift */; };
+		A6BA11562340B09000A81A94 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA11552340B09000A81A94 /* Constant.swift */; };
+		A6BA11582341B47300A81A94 /* certificate.der in Resources */ = {isa = PBXBuildFile; fileRef = A6BA11572341B47300A81A94 /* certificate.der */; };
 		B0B95D992255202000A40158 /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B95D8F2255201F00A40158 /* MyService.framework */; };
 		B0B95D9E2255202000A40158 /* MyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95D9D2255202000A40158 /* MyServiceTests.swift */; };
 		B0B95DA02255202000A40158 /* MyService.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B95D922255201F00A40158 /* MyService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -82,6 +85,9 @@
 		A6BA1146234095B200A81A94 /* IdentityQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityQueryable.swift; sourceTree = "<group>"; };
 		A6BA1149234096BA00A81A94 /* CryptographicQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptographicQueryable.swift; sourceTree = "<group>"; };
 		A6BA114B2340A26400A81A94 /* InternetPasswordQueryableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetPasswordQueryableTests.swift; sourceTree = "<group>"; };
+		A6BA11532340B04000A81A94 /* CertificateQueryableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateQueryableTests.swift; sourceTree = "<group>"; };
+		A6BA11552340B09000A81A94 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		A6BA11572341B47300A81A94 /* certificate.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = certificate.der; sourceTree = "<group>"; };
 		B0B95D8F2255201F00A40158 /* MyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B95D922255201F00A40158 /* MyService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyService.h; sourceTree = "<group>"; };
 		B0B95D932255201F00A40158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -183,7 +189,9 @@
 			children = (
 				A6BA1135233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift */,
 				A6BA114B2340A26400A81A94 /* InternetPasswordQueryableTests.swift */,
+				A6BA11532340B04000A81A94 /* CertificateQueryableTests.swift */,
 				A6BA1137233E2C6F00A81A94 /* Info.plist */,
+				A6BA11552340B09000A81A94 /* Constant.swift */,
 			);
 			path = MyServiceDemoTests;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 		B0B95DBB22573DCF00A40158 /* MockObjects */ = {
 			isa = PBXGroup;
 			children = (
+				A6BA11572341B47300A81A94 /* certificate.der */,
 				B0B95DB722573DBF00A40158 /* MockURLSession.swift */,
 				B0B95DB822573DBF00A40158 /* MockURLSessionDataTask.swift */,
 			);
@@ -407,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BA11582341B47300A81A94 /* certificate.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +473,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6BA114C2340A26400A81A94 /* InternetPasswordQueryableTests.swift in Sources */,
+				A6BA11562340B09000A81A94 /* Constant.swift in Sources */,
+				A6BA11542340B04000A81A94 /* CertificateQueryableTests.swift in Sources */,
 				A6BA1136233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

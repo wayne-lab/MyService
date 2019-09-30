@@ -12,14 +12,9 @@ import XCTest
 
 class GenericPasswordQueryableTests: XCTestCase {
     
-    enum Constant {
-        static let account = "generate"
-        static let account2 = "generate2"
-    }
-    
     let genericPassword = GenericPasswordQueryable(service: "test")
     lazy var keychainWrapper: KeychainWrapper = {
-        return KeychainWrapper(searchable: genericPassword)
+        return KeychainWrapper(queryable: genericPassword)
     }()
     
     let internetPassword = InternetPasswordQueryable(server: "com.wayne.hsiao", port: 8080, path: "url/path", securityDomain: "domain", internetProtocol: kSecAttrProtocolHTTPS.toString, internetAuthenticationType: kSecAttrAuthenticationTypeHTTPBasic.toString)
@@ -37,7 +32,7 @@ class GenericPasswordQueryableTests: XCTestCase {
             let password = "123"
             try keychainWrapper.setValue(password,
                                          forAccount: Constant.account)
-            try keychainWrapper.remove(for: Constant.account)
+            try keychainWrapper.removeValue(for: Constant.account)
             XCTAssertNil(try keychainWrapper.getValue(for: Constant.account))
         } catch {
             XCTFail("Saving value failed. - \(error.localizedDescription)")

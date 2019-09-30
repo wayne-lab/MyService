@@ -36,11 +36,12 @@ extension GenericPasswordQueryable: KeychainItemQueryable {
 }
 
 extension GenericPasswordQueryable: KeychainItemStorable {
-    public func addquery(_ value: String,
+    public func addquery(_ value: Any,
                          account: String,
                          accessControl: SecAccessControl? = nil) throws -> [String : Any] {
-        guard let encodedData = value.data(using: .utf8) else {
-            throw WrapperError.stringToDataError
+        guard let stringValue = value as? String,
+            let encodedData = stringValue.data(using: .utf8) else {
+                throw WrapperError.stringToDataError
         }
         
         var query = getquery

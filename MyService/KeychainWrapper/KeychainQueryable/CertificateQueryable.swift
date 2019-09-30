@@ -10,16 +10,19 @@ import Foundation
 
 /// Keychain wrapper for item class [kSecClassCertificate](https://developer.apple.com/documentation/security/ksecclasscertificate).
 /// You can check example in the [Apple documentation](https://developer.apple.com/documentation/security/certificate_key_and_trust_services/certificates/storing_a_certificate_in_the_keychain).
-public struct CertificateQueryable: KeychainItemQueryable {
+public struct CertificateQueryable {
     let accessGroup: String?
-    let label: String
-    
+
+    public init(accessGroup: String? = nil) {
+        self.accessGroup = accessGroup
+    }
+}
+
+extension CertificateQueryable: KeychainItemQueryable {
     public var getquery: [String: Any] {
         var query = [
-            String(kSecClass): kSecClassGenericPassword
-            ] as [String : Any]
-
-        query[kSecAttrLabel.toString] = label
+            kSecClass.toString: kSecClassCertificate,
+            kSecReturnRef.toString: kCFBooleanTrue as Any] as [String: Any]
         
         #if !targetEnvironment(simulator)
         if let accessGroup = accessGroup {
@@ -28,10 +31,24 @@ public struct CertificateQueryable: KeychainItemQueryable {
         #endif
         return query
     }
-    
-    public init(label: String,
-                accessGroup: String? = nil) {
-        self.label = label
-        self.accessGroup = accessGroup
+}
+
+extension CertificateQueryable: KeychainItemStorable {
+    public func addquery(_ value: Any,
+                         account: String,
+                         accessControl: SecAccessControl?) throws -> [String : Any] {
+        
+        guard let data = value as? Data,
+            let cert = SecCertificateCreateWithData(nil, data as CFData) else {
+                throw WrapperError.certificateGenerateError
+        }
+        
+        let query =
+            [
+                kSecClass.toString: kSecClassCertificate,
+                kSecValueRef.toString: cert,
+                kSecAttrLabel.toString: account] as [String: Any]
+        
+        return query
     }
 }

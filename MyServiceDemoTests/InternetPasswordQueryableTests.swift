@@ -12,11 +12,6 @@ import XCTest
 
 class InternetPasswordQueryableTests: XCTestCase {
     
-    enum Constant {
-        static let account = "generate"
-        static let account2 = "generate2"
-    }
-    
     let internetPassword = InternetPasswordQueryable(server: "com.wayne.hsiao",
                                                      port: 8080, path: "url/path",
                                                      securityDomain: "domain",
@@ -24,7 +19,7 @@ class InternetPasswordQueryableTests: XCTestCase {
                                                      internetAuthenticationType: kSecAttrAuthenticationTypeHTTPBasic.toString)
     
     lazy var keychainWrapper: KeychainWrapper = {
-        return KeychainWrapper(searchable: internetPassword)
+        return KeychainWrapper(queryable: internetPassword)
     }()
 
     override func setUp() {
@@ -40,7 +35,7 @@ class InternetPasswordQueryableTests: XCTestCase {
             let password = "123"
             try keychainWrapper.setValue(password,
                                          forAccount: Constant.account)
-            try keychainWrapper.remove(for: Constant.account)
+            try keychainWrapper.removeValue(for: Constant.account)
             XCTAssertNil(try keychainWrapper.getValue(for: Constant.account))
         } catch {
             XCTFail("Saving value failed. - \(error.localizedDescription)")

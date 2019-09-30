@@ -15,8 +15,8 @@ public struct IdentityQueryable: KeychainItemQueryable {
     
     public var getquery: [String: Any] {
         var query = [
-            String(kSecClass): kSecClassGenericPassword,
-            String(kSecAttrService): service
+            kSecClass.toString: kSecClassGenericPassword,
+            kSecAttrService.toString: service
             ] as [String : Any]
         
         #if !targetEnvironment(simulator)

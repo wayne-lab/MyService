@@ -14,6 +14,7 @@ public enum WrapperError: Error {
     case dataToStringError
     case notFound
     case failed
+    case certificateGenerateError
     case unknowError(message: String)
     
     static public func error(from status: OSStatus) -> WrapperError {
@@ -34,7 +35,7 @@ public protocol KeychainItemQueryable {
 }
 
 public protocol KeychainItemStorable {
-    func addquery(_ value: String,
+    func addquery(_ value: Any,
                   account: String,
                   accessControl: SecAccessControl?) throws -> [String: Any]
 }
