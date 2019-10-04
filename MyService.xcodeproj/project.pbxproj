@@ -28,6 +28,8 @@
 		A6BA11542340B04000A81A94 /* CertificateQueryableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA11532340B04000A81A94 /* CertificateQueryableTests.swift */; };
 		A6BA11562340B09000A81A94 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA11552340B09000A81A94 /* Constant.swift */; };
 		A6BA11582341B47300A81A94 /* certificate.der in Resources */ = {isa = PBXBuildFile; fileRef = A6BA11572341B47300A81A94 /* certificate.der */; };
+		A6BA12802347A73600A81A94 /* ArchiveQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA127F2347A73600A81A94 /* ArchiveQueryable.swift */; };
+		A6BA12822347A7AA00A81A94 /* ArchiveQueryableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA12812347A7AA00A81A94 /* ArchiveQueryableTests.swift */; };
 		B0B95D992255202000A40158 /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B95D8F2255201F00A40158 /* MyService.framework */; };
 		B0B95D9E2255202000A40158 /* MyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95D9D2255202000A40158 /* MyServiceTests.swift */; };
 		B0B95DA02255202000A40158 /* MyService.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B95D922255201F00A40158 /* MyService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,6 +90,8 @@
 		A6BA11532340B04000A81A94 /* CertificateQueryableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateQueryableTests.swift; sourceTree = "<group>"; };
 		A6BA11552340B09000A81A94 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A6BA11572341B47300A81A94 /* certificate.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = certificate.der; sourceTree = "<group>"; };
+		A6BA127F2347A73600A81A94 /* ArchiveQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveQueryable.swift; sourceTree = "<group>"; };
+		A6BA12812347A7AA00A81A94 /* ArchiveQueryableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveQueryableTests.swift; sourceTree = "<group>"; };
 		B0B95D8F2255201F00A40158 /* MyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B95D922255201F00A40158 /* MyService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyService.h; sourceTree = "<group>"; };
 		B0B95D932255201F00A40158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				A6BA1135233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift */,
+				A6BA12812347A7AA00A81A94 /* ArchiveQueryableTests.swift */,
 				A6BA114B2340A26400A81A94 /* InternetPasswordQueryableTests.swift */,
 				A6BA11532340B04000A81A94 /* CertificateQueryableTests.swift */,
 				A6BA1137233E2C6F00A81A94 /* Info.plist */,
@@ -201,6 +206,7 @@
 			children = (
 				A6BA10ED233E0F6A00A81A94 /* KeychainQueryable.swift */,
 				A6BA11402340956B00A81A94 /* GenericPasswordQueryable.swift */,
+				A6BA127F2347A73600A81A94 /* ArchiveQueryable.swift */,
 				A6BA11422340958500A81A94 /* InternetPasswordQueryable.swift */,
 				A6BA11442340959E00A81A94 /* CertificateQueryable.swift */,
 				A6BA1149234096BA00A81A94 /* CryptographicQueryable.swift */,
@@ -473,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6BA114C2340A26400A81A94 /* InternetPasswordQueryableTests.swift in Sources */,
+				A6BA12822347A7AA00A81A94 /* ArchiveQueryableTests.swift in Sources */,
 				A6BA11562340B09000A81A94 /* Constant.swift in Sources */,
 				A6BA11542340B04000A81A94 /* CertificateQueryableTests.swift in Sources */,
 				A6BA1136233E2C6F00A81A94 /* GenericPasswordQueryableTests.swift in Sources */,
@@ -492,6 +499,7 @@
 				A6BA114A234096BA00A81A94 /* CryptographicQueryable.swift in Sources */,
 				A6BA11432340958500A81A94 /* InternetPasswordQueryable.swift in Sources */,
 				B0B95DAF22566D6600A40158 /* Error.swift in Sources */,
+				A6BA12802347A73600A81A94 /* ArchiveQueryable.swift in Sources */,
 				B0B95DB22256720200A40158 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

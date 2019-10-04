@@ -157,8 +157,7 @@ public struct KeychainWrapper {
         }
     }
     
-    
-    /// Remove items of specific account.
+    /// Remove items which stored value of specific account.
     /// - Parameter account: Name of the account.
     public func removeValue(for account: String) throws {
         var query = queryable.getquery
@@ -170,6 +169,8 @@ public struct KeychainWrapper {
         }
     }
     
+    /// Remove items which stored reference for specific account.
+    /// - Parameter account: Name of the account.
     public func removeRef(for account: String) throws {
         var query = queryable.getquery
         query[kSecAttrLabel.toString] = account
@@ -184,6 +185,46 @@ public struct KeychainWrapper {
     public func removeAll() throws {
         let status = SecItemDelete(queryable.getquery.toCFDictionary)
         guard status == errSecSuccess || status == errSecItemNotFound else {
+            throw WrapperError.error(from: status)
+        }
+    }
+    
+    public func setData(_ data: Data,
+                         forAccount account: String,
+                         accessControl: SecAccessControl? = nil) throws {
+        do {
+            var attributesToUpdate = [String: Any]()
+            attributesToUpdate[kSecValueData.toString] = data
+            try addOrUpdate(data,
+                            forAccount: account,
+                            accessControl: accessControl,
+                            updateData: attributesToUpdate)
+
+        } catch {
+            throw error
+        }
+    }
+    
+    public func getData(for account: String) throws -> Data? {
+        var query = queryable.getquery
+        query[kSecMatchLimit.toString] = kSecMatchLimitOne
+        query[kSecReturnData.toString] = kCFBooleanTrue
+        query[kSecAttrAccount.toString] = account
+        
+        var queryResult: AnyObject?
+        let status = withUnsafeMutablePointer(to: &queryResult) {
+            SecItemCopyMatching(query.toCFDictionary, $0)
+        }
+        
+        switch status {
+        case errSecSuccess:
+            guard let data = queryResult as? Data else {
+                    throw WrapperError.convertError
+            }
+            return data
+        case errSecItemNotFound:
+            return nil
+        default:
             throw WrapperError.error(from: status)
         }
     }

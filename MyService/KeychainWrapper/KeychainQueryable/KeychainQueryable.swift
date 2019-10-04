@@ -12,6 +12,7 @@ import Security
 public enum WrapperError: Error {
     case stringToDataError
     case dataToStringError
+    case convertError
     case notFound
     case failed
     case certificateGenerateError

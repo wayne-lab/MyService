@@ -63,9 +63,9 @@ class GenericPasswordQueryableTests: XCTestCase {
             // Test add new value.
             try keychainWrapper.setValue(password,
                                          forAccount: Constant.account)
-            // Test update old value.
-            try keychainWrapper.setValue(password,
-            forAccount: Constant.account)
+//            // Test update old value.
+//            try keychainWrapper.setValue(password,
+//            forAccount: Constant.account)
             
             XCTAssertEqual(try keychainWrapper.getValue(for: Constant.account), password)
         } catch {
