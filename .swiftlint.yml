@@ -2,5 +2,6 @@ excluded:
 - MyServiceDemo
 - MyService
 - MyServiceTests
+- MyServiceDemoTests
 - Pods
 - vendor
