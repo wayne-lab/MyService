@@ -8,7 +8,9 @@
 
 import Foundation
 
+// swiftlint:disable all
 /// Keychain wrapper for item class [kSecClassGenericPassword](https://developer.apple.com/documentation/security/ksecclassgenericpassword)
+// swiftlint:enable all
 public struct GenericPasswordQueryable {
     let service: String
     let accessGroup: String?
@@ -24,7 +26,7 @@ extension GenericPasswordQueryable: KeychainItemQueryable {
         var query = [
             kSecClass.toString: kSecClassGenericPassword,
             kSecAttrService.toString: service
-            ] as [String : Any]
+            ] as [String: Any]
         
         #if !targetEnvironment(simulator)
         if let accessGroup = accessGroup {
@@ -38,7 +40,7 @@ extension GenericPasswordQueryable: KeychainItemQueryable {
 extension GenericPasswordQueryable: KeychainItemStorable {
     public func addquery(_ value: Any,
                          account: String,
-                         accessControl: SecAccessControl? = nil) throws -> [String : Any] {
+                         accessControl: SecAccessControl? = nil) throws -> [String: Any] {
         guard let stringValue = value as? String,
             let encodedData = stringValue.data(using: .utf8) else {
                 throw WrapperError.stringToDataError

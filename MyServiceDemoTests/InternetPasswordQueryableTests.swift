@@ -16,7 +16,8 @@ class InternetPasswordQueryableTests: XCTestCase {
                                                      port: 8080, path: "url/path",
                                                      securityDomain: "domain",
                                                      internetProtocol: kSecAttrProtocolHTTPS.toString,
-                                                     internetAuthenticationType: kSecAttrAuthenticationTypeHTTPBasic.toString)
+                                                     internetAuthenticationType:
+        kSecAttrAuthenticationTypeHTTPBasic.toString)
     
     lazy var keychainWrapper: KeychainWrapper = {
         return KeychainWrapper(queryable: internetPassword)
@@ -56,8 +57,6 @@ class InternetPasswordQueryableTests: XCTestCase {
         } catch {
             XCTFail("Saving value failed. - \(error.localizedDescription)")
         }
-
-        
     }
     
     func testGetValue() {

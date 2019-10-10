@@ -11,13 +11,19 @@ import XCTest
 @testable import MyService
 
 class GenericPasswordQueryableTests: XCTestCase {
-    
+
     let genericPassword = GenericPasswordQueryable(service: "test")
     lazy var keychainWrapper: KeychainWrapper = {
         return KeychainWrapper(queryable: genericPassword)
     }()
-    
-    let internetPassword = InternetPasswordQueryable(server: "com.wayne.hsiao", port: 8080, path: "url/path", securityDomain: "domain", internetProtocol: kSecAttrProtocolHTTPS.toString, internetAuthenticationType: kSecAttrAuthenticationTypeHTTPBasic.toString)
+
+    let internetPassword = InternetPasswordQueryable(server: "com.wayne.hsiao",
+                                                     port: 8080,
+                                                     path: "url/path",
+                                                     securityDomain: "domain",
+                                                     internetProtocol: kSecAttrProtocolHTTPS.toString,
+                                                     internetAuthenticationType:
+        kSecAttrAuthenticationTypeHTTPBasic.toString)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -38,7 +44,7 @@ class GenericPasswordQueryableTests: XCTestCase {
             XCTFail("Saving value failed. - \(error.localizedDescription)")
         }
     }
-    
+
     func testRemoveAll() {
         do {
             try keychainWrapper.setValue("123",
@@ -53,10 +59,8 @@ class GenericPasswordQueryableTests: XCTestCase {
         } catch {
             XCTFail("Saving value failed. - \(error.localizedDescription)")
         }
-
-        
     }
-    
+
     func testGetValue() {
         do {
             let password = "123"
@@ -66,7 +70,7 @@ class GenericPasswordQueryableTests: XCTestCase {
 //            // Test update old value.
 //            try keychainWrapper.setValue(password,
 //            forAccount: Constant.account)
-            
+
             XCTAssertEqual(try keychainWrapper.getValue(for: Constant.account), password)
         } catch {
             XCTFail("Saving value failed. - \(error.localizedDescription)")
@@ -80,7 +84,7 @@ class GenericPasswordQueryableTests: XCTestCase {
         } catch {
             XCTFail("Saving value failed. - \(error.localizedDescription)")
         }
-        
+
     }
 
     func testPerformanceExample() {

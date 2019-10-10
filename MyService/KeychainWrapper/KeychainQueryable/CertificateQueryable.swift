@@ -8,8 +8,10 @@
 
 import Foundation
 
+// swiftlint:disable all
 /// Keychain wrapper for item class [kSecClassCertificate](https://developer.apple.com/documentation/security/ksecclasscertificate).
 /// You can check example in the [Apple documentation](https://developer.apple.com/documentation/security/certificate_key_and_trust_services/certificates/storing_a_certificate_in_the_keychain).
+// swiftlint:enable all
 public struct CertificateQueryable {
     let accessGroup: String?
 
@@ -36,7 +38,7 @@ extension CertificateQueryable: KeychainItemQueryable {
 extension CertificateQueryable: KeychainItemStorable {
     public func addquery(_ value: Any,
                          account: String,
-                         accessControl: SecAccessControl?) throws -> [String : Any] {
+                         accessControl: SecAccessControl?) throws -> [String: Any] {
         
         guard let data = value as? Data,
             let cert = SecCertificateCreateWithData(nil, data as CFData) else {

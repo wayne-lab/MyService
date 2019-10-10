@@ -23,7 +23,7 @@ extension ArchiveQueryable: KeychainItemQueryable {
         var query = [
             kSecClass.toString: kSecClassGenericPassword,
             kSecAttrService.toString: service
-            ] as [String : Any]
+            ] as [String: Any]
         
         #if !targetEnvironment(simulator)
         if let accessGroup = accessGroup {
@@ -37,7 +37,7 @@ extension ArchiveQueryable: KeychainItemQueryable {
 extension ArchiveQueryable: KeychainItemStorable {
     public func addquery(_ value: Any,
                          account: String,
-                         accessControl: SecAccessControl? = nil) throws -> [String : Any] {
+                         accessControl: SecAccessControl? = nil) throws -> [String: Any] {
         guard let data = value as? Data else {
                 throw WrapperError.stringToDataError
         }

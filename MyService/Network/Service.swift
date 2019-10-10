@@ -24,7 +24,8 @@ public protocol URLSessionDataTaskProtocol {
 }
 
 extension URLSession: URLSessionProtocol {
-    public func dataTask(with request: URLRequestProtocol, completionHandler: @escaping NetworkCompletionHandler) -> URLSessionDataTaskProtocol {
+    public func dataTask(with request: URLRequestProtocol,
+                         completionHandler: @escaping NetworkCompletionHandler) -> URLSessionDataTaskProtocol {
         return dataTask(with: request, completionHandler: completionHandler)
     }
 
@@ -47,10 +48,10 @@ public class Service {
     }
 
     public func post(url: URL,
-              body: [AnyHashable: Any]? = nil,
-              overrideHeader: [String: String]? = nil,
-              completionHandler: @escaping NetworkCompletionHandler) {
-
+                     body: [AnyHashable: Any]? = nil,
+                     overrideHeader: [String: String]? = nil,
+                     completionHandler: @escaping NetworkCompletionHandler) {
+        
         do {
             var request = URLRequest(url: url)
 
@@ -82,8 +83,8 @@ public class Service {
     }
 
     public func get(url: URL,
-             overrideHeader: [String: String]? = nil,
-             completionHandler: @escaping NetworkCompletionHandler) {
+                    overrideHeader: [String: String]? = nil,
+                    completionHandler: @escaping NetworkCompletionHandler) {
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -109,14 +110,16 @@ public class Service {
 
 extension Service {
     static public func servicesFromPlist(_ bundle: Bundle = Bundle.main) -> [String: String]? {
-        
+
         guard let resourcePath = bundle.path(forResource: "Services", ofType: "plist"),
             let resource = FileManager.default.contents(atPath: resourcePath) else {
                 return nil
         }
         do {
             var format = PropertyListSerialization.PropertyListFormat.xml
-            guard let services = try PropertyListSerialization.propertyList(from: resource, options: .mutableContainersAndLeaves, format: &format) as? [String: String] else {
+            guard let services = try PropertyListSerialization.propertyList(from: resource,
+                                                                            options: .mutableContainersAndLeaves,
+                                                                            format: &format) as? [String: String] else {
                 return nil
             }
             return services
@@ -124,10 +127,10 @@ extension Service {
             return nil
         }
     }
-    
-    static public func getPath(_ key:String,
-                        token: [String: String]? = nil,
-                        services: [String: String]? = servicesFromPlist()) -> String? {
+
+    static public func getPath(_ key: String,
+                               token: [String: String]? = nil,
+                               services: [String: String]? = servicesFromPlist()) -> String? {
         
         func valueFromSymbol(_ symbol: String) -> String {
             var value = symbol

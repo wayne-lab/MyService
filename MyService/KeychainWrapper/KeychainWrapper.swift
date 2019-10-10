@@ -14,11 +14,11 @@ public typealias KeychainWrapperAdoptor = KeychainItemQueryable & KeychainItemSt
 public struct KeychainWrapper {
     
     var queryable: KeychainWrapperAdoptor
-    
+
     public init(queryable: KeychainWrapperAdoptor) {
         self.queryable = queryable
     }
-    
+
     public func setRef(_ data: Data,
                        forAccount account: String,
                        accessControl: SecAccessControl? = nil) throws {
@@ -56,7 +56,7 @@ public struct KeychainWrapper {
             guard let encodedData = value.data(using: .utf8) else {
                 throw WrapperError.stringToDataError
             }
-            
+
             var attributesToUpdate = [String: Any]()
             attributesToUpdate[kSecValueData.toString] = encodedData
             try addOrUpdate(value,
@@ -73,16 +73,16 @@ public struct KeychainWrapper {
                                  forAccount account: String,
                                  accessControl: SecAccessControl? = nil,
                                  updateData: [String: Any]) throws {
-        
+
         let query = queryable.getquery
         let status = SecItemCopyMatching(query.toCFDictionary, nil)
-        
+
         switch status {
         case errSecSuccess:
             let addquery = try queryable.addquery(data, account: account, accessControl: accessControl)
             let addstatus = SecItemUpdate(addquery.toCFDictionary,
                                    updateData.toCFDictionary)
-            
+
             if addstatus == errSecItemNotFound {
                 fallthrough
             } else if addstatus != errSecSuccess {
@@ -98,7 +98,7 @@ public struct KeychainWrapper {
             throw WrapperError.failed
         }
     }
-    
+
     /// Get value reference.
     /// - Parameter account: Identify the value of the specific account.
     public func getRef(for account: String) throws -> Data? {
@@ -107,27 +107,26 @@ public struct KeychainWrapper {
         query[kSecReturnAttributes.toString] = kCFBooleanTrue
         query[kSecAttrLabel.toString] = account
         query[kSecReturnRef.toString] = kCFBooleanTrue
-        
+
         var queryResult: AnyObject?
         let status = withUnsafeMutablePointer(to: &queryResult) {
             SecItemCopyMatching(query.toCFDictionary, $0)
         }
-        
+
         switch status {
         case errSecSuccess:
-            guard let queriedItem = queryResult as? [AnyHashable: Any],
-                let data = queriedItem[kSecValueRef.toString] else {
+            guard let queriedItem = queryResult as? [AnyHashable: SecCertificate],
+                let certificate = queriedItem[kSecValueRef.toString] else {
                     throw WrapperError.dataToStringError
             }
-            
-            return SecCertificateCopyData(data as! SecCertificate) as Data
+            return SecCertificateCopyData(certificate) as Data
         case errSecItemNotFound:
             return nil
         default:
             throw WrapperError.error(from: status)
         }
     }
-    
+
     /// Retrieve value of specific account from keychain
     /// - Parameter account: Name of the account.
     public func getValue(for account: String) throws -> String? {
@@ -141,7 +140,7 @@ public struct KeychainWrapper {
         let status = withUnsafeMutablePointer(to: &queryResult) {
             SecItemCopyMatching(query.toCFDictionary, $0)
         }
-        
+
         switch status {
         case errSecSuccess:
             guard let queriedItem = queryResult as? [String: Any],
@@ -156,31 +155,31 @@ public struct KeychainWrapper {
             throw WrapperError.error(from: status)
         }
     }
-    
+
     /// Remove items which stored value of specific account.
     /// - Parameter account: Name of the account.
     public func removeValue(for account: String) throws {
         var query = queryable.getquery
         query[kSecAttrAccount.toString] = account
-        
+
         let status = SecItemDelete(query.toCFDictionary)
         guard status == errSecSuccess || status == errSecItemNotFound else {
             throw WrapperError.error(from: status)
         }
     }
-    
+
     /// Remove items which stored reference for specific account.
     /// - Parameter account: Name of the account.
     public func removeRef(for account: String) throws {
         var query = queryable.getquery
         query[kSecAttrLabel.toString] = account
-        
+
         let status = SecItemDelete(query.toCFDictionary)
         guard status == errSecSuccess || status == errSecItemNotFound else {
             throw WrapperError.error(from: status)
         }
     }
-    
+
     /// Clear all items in the keychain.
     public func removeAll() throws {
         let status = SecItemDelete(queryable.getquery.toCFDictionary)
@@ -188,10 +187,10 @@ public struct KeychainWrapper {
             throw WrapperError.error(from: status)
         }
     }
-    
+
     public func setData(_ data: Data,
-                         forAccount account: String,
-                         accessControl: SecAccessControl? = nil) throws {
+                        forAccount account: String,
+                        accessControl: SecAccessControl? = nil) throws {
         do {
             var attributesToUpdate = [String: Any]()
             attributesToUpdate[kSecValueData.toString] = data
@@ -204,18 +203,18 @@ public struct KeychainWrapper {
             throw error
         }
     }
-    
+
     public func getData(for account: String) throws -> Data? {
         var query = queryable.getquery
         query[kSecMatchLimit.toString] = kSecMatchLimitOne
         query[kSecReturnData.toString] = kCFBooleanTrue
         query[kSecAttrAccount.toString] = account
-        
+
         var queryResult: AnyObject?
         let status = withUnsafeMutablePointer(to: &queryResult) {
             SecItemCopyMatching(query.toCFDictionary, $0)
         }
-        
+
         switch status {
         case errSecSuccess:
             guard let data = queryResult as? Data else {
