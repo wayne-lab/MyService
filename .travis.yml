@@ -6,9 +6,9 @@ cache:
 before_install:
   - git fetch --depth=1000000
 # - gem install bundler
-  - brew install carthage || true
-  - brew outdated carthage || brew upgrade carthage
-  - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
+  # - brew install carthage || true
+  # - brew outdated carthage || brew upgrade carthage
+  # - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
 install:
 #  - brew install swiftlint
 #  - bundle update
