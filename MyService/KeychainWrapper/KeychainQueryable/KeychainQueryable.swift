@@ -39,4 +39,7 @@ public protocol KeychainItemStorable {
     func addquery(_ value: Any,
                   account: String,
                   accessControl: SecAccessControl?) throws -> [String: Any]
+    func addquery(_ value: Any,
+                  account: String,
+                  isHighSecured: Bool) throws -> [String: Any]
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LocalAuthentication
 
 // swiftlint:disable all
 /// Keychain wrapper for item class [kSecClassGenericPassword](https://developer.apple.com/documentation/security/ksecclassgenericpassword)
@@ -30,14 +31,37 @@ extension GenericPasswordQueryable: KeychainItemQueryable {
         
         #if !targetEnvironment(simulator)
         if let accessGroup = accessGroup {
-          query[String(kSecAttrAccessGroup)] = accessGroup
+            query[String(kSecAttrAccessGroup)] = accessGroup
         }
         #endif
+        
         return query
     }
 }
 
 extension GenericPasswordQueryable: KeychainItemStorable {
+    public func addquery(_ value: Any, account: String, isHighSecured: Bool = true) throws -> [String : Any] {
+        guard let stringValue = value as? String,
+            let encodedData = stringValue.data(using: .utf8) else {
+                throw WrapperError.stringToDataError
+        }
+
+        var query = getquery
+        #if !targetEnvironment(simulator)
+        if isHighSecured == true {
+            var error: Unmanaged<CFError>?
+            let access = SecAccessControlCreateWithFlags(nil,
+                                                         kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
+                                                         .userPresence, &error)
+            precondition(access != nil, "SecAccessControlCreateWithFlags failed")
+            query[kSecAttrAccessControl.toString] = access
+        }
+        #endif
+        query[kSecAttrAccount.toString] = account
+        query[kSecValueData.toString] = encodedData
+        return query
+    }
+    
     public func addquery(_ value: Any,
                          account: String,
                          accessControl: SecAccessControl? = nil) throws -> [String: Any] {
@@ -45,11 +69,18 @@ extension GenericPasswordQueryable: KeychainItemStorable {
             let encodedData = stringValue.data(using: .utf8) else {
                 throw WrapperError.stringToDataError
         }
-        
+
         var query = getquery
+        #if !targetEnvironment(simulator)
+        var error: Unmanaged<CFError>?
+        let access = SecAccessControlCreateWithFlags(nil,
+                                                     kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
+                                                     .userPresence, &error)
+        precondition(access != nil, "SecAccessControlCreateWithFlags failed")
+        query[kSecAttrAccessControl.toString] = access
+        #endif
         query[kSecAttrAccount.toString] = account
         query[kSecValueData.toString] = encodedData
-        
         return query
     }
 }

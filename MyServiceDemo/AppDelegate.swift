@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import MyService
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let genericPassword = GenericPasswordQueryable(service: "test")
+        let keychainWrapper = KeychainWrapper(queryable: genericPassword)
+        try? keychainWrapper.removeAll()
         return true
     }
 

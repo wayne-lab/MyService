@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6984094234F35A000F25FB1 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6984092234F35A000F25FB1 /* TextFieldCell.xib */; };
+		A6984095234F35A000F25FB1 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6984093234F35A000F25FB1 /* TextFieldCell.swift */; };
 		A6A167392335F99600E1143F /* Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A167382335F99600E1143F /* Services.plist */; };
 		A6BA10E2233E04BE00A81A94 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA10E1233E04BE00A81A94 /* KeychainWrapper.swift */; };
 		A6BA10E7233E06C300A81A94 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BA10E6233E06C300A81A94 /* Security.framework */; };
@@ -30,6 +32,11 @@
 		A6BA11582341B47300A81A94 /* certificate.der in Resources */ = {isa = PBXBuildFile; fileRef = A6BA11572341B47300A81A94 /* certificate.der */; };
 		A6BA12802347A73600A81A94 /* ArchiveQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA127F2347A73600A81A94 /* ArchiveQueryable.swift */; };
 		A6BA12822347A7AA00A81A94 /* ArchiveQueryableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BA12812347A7AA00A81A94 /* ArchiveQueryableTests.swift */; };
+		A6C059CE234F39F500F54A6D /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C059CD234F39F500F54A6D /* ViewControllerViewModel.swift */; };
+		A6C059D1234F7ACA00F54A6D /* SubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C059CF234F7ACA00F54A6D /* SubmitCell.xib */; };
+		A6C059D2234F7ACA00F54A6D /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C059D0234F7ACA00F54A6D /* SubmitCell.swift */; };
+		A6C059D323508DAF00F54A6D /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B95D8F2255201F00A40158 /* MyService.framework */; };
+		A6C059D423508DAF00F54A6D /* MyService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B95D8F2255201F00A40158 /* MyService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0B95D992255202000A40158 /* MyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B95D8F2255201F00A40158 /* MyService.framework */; };
 		B0B95D9E2255202000A40158 /* MyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B95D9D2255202000A40158 /* MyServiceTests.swift */; };
 		B0B95DA02255202000A40158 /* MyService.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B95D922255201F00A40158 /* MyService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +62,13 @@
 			remoteGlobalIDString = B0B95D8E2255201F00A40158;
 			remoteInfo = MyService;
 		};
+		A6C059D523508DAF00F54A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0B95D862255201F00A40158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B95D8E2255201F00A40158;
+			remoteInfo = MyService;
+		};
 		B0B95D9A2255202000A40158 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0B95D862255201F00A40158 /* Project object */;
@@ -64,7 +78,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A6C059D723508DAF00F54A6D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A6C059D423508DAF00F54A6D /* MyService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A6984092234F35A000F25FB1 /* TextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		A6984093234F35A000F25FB1 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		A6A167382335F99600E1143F /* Services.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Services.plist; sourceTree = "<group>"; };
 		A6BA10E1233E04BE00A81A94 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		A6BA10E6233E06C300A81A94 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
@@ -92,6 +122,9 @@
 		A6BA11572341B47300A81A94 /* certificate.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = certificate.der; sourceTree = "<group>"; };
 		A6BA127F2347A73600A81A94 /* ArchiveQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveQueryable.swift; sourceTree = "<group>"; };
 		A6BA12812347A7AA00A81A94 /* ArchiveQueryableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveQueryableTests.swift; sourceTree = "<group>"; };
+		A6C059CD234F39F500F54A6D /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
+		A6C059CF234F7ACA00F54A6D /* SubmitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitCell.xib; sourceTree = "<group>"; };
+		A6C059D0234F7ACA00F54A6D /* SubmitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCell.swift; sourceTree = "<group>"; };
 		B0B95D8F2255201F00A40158 /* MyService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B95D922255201F00A40158 /* MyService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyService.h; sourceTree = "<group>"; };
 		B0B95D932255201F00A40158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C059D323508DAF00F54A6D /* MyService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +214,11 @@
 				A6BA111E233E2C6E00A81A94 /* AppDelegate.swift */,
 				A6BA1120233E2C6E00A81A94 /* SceneDelegate.swift */,
 				A6BA1122233E2C6E00A81A94 /* ViewController.swift */,
+				A6C059CD234F39F500F54A6D /* ViewControllerViewModel.swift */,
+				A6984092234F35A000F25FB1 /* TextFieldCell.xib */,
+				A6984093234F35A000F25FB1 /* TextFieldCell.swift */,
+				A6C059CF234F7ACA00F54A6D /* SubmitCell.xib */,
+				A6C059D0234F7ACA00F54A6D /* SubmitCell.swift */,
 				A6BA1124233E2C6E00A81A94 /* Main.storyboard */,
 				A6BA1127233E2C6E00A81A94 /* Assets.xcassets */,
 				A6BA1129233E2C6E00A81A94 /* LaunchScreen.storyboard */,
@@ -294,11 +333,13 @@
 				A6BA1118233E2C6E00A81A94 /* Sources */,
 				A6BA1119233E2C6E00A81A94 /* Frameworks */,
 				A6BA111A233E2C6E00A81A94 /* Resources */,
+				A6C059D723508DAF00F54A6D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				A6BA11522340ADF000A81A94 /* PBXTargetDependency */,
+				A6C059D623508DAF00F54A6D /* PBXTargetDependency */,
 			);
 			name = MyServiceDemo;
 			productName = MyServiceDemo;
@@ -415,6 +456,8 @@
 				A6BA112B233E2C6E00A81A94 /* LaunchScreen.storyboard in Resources */,
 				A6BA1128233E2C6E00A81A94 /* Assets.xcassets in Resources */,
 				A6BA1126233E2C6E00A81A94 /* Main.storyboard in Resources */,
+				A6984094234F35A000F25FB1 /* TextFieldCell.xib in Resources */,
+				A6C059D1234F7ACA00F54A6D /* SubmitCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,8 +512,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6BA1123233E2C6E00A81A94 /* ViewController.swift in Sources */,
+				A6C059D2234F7ACA00F54A6D /* SubmitCell.swift in Sources */,
 				A6BA111F233E2C6E00A81A94 /* AppDelegate.swift in Sources */,
+				A6C059CE234F39F500F54A6D /* ViewControllerViewModel.swift in Sources */,
 				A6BA1121233E2C6E00A81A94 /* SceneDelegate.swift in Sources */,
+				A6984095234F35A000F25FB1 /* TextFieldCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +574,11 @@
 			target = B0B95D8E2255201F00A40158 /* MyService */;
 			targetProxy = A6BA11512340ADF000A81A94 /* PBXContainerItemProxy */;
 		};
+		A6C059D623508DAF00F54A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0B95D8E2255201F00A40158 /* MyService */;
+			targetProxy = A6C059D523508DAF00F54A6D /* PBXContainerItemProxy */;
+		};
 		B0B95D9B2255202000A40158 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B0B95D8E2255201F00A40158 /* MyService */;
@@ -560,6 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				INFOPLIST_FILE = MyServiceDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -578,6 +630,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				INFOPLIST_FILE = MyServiceDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

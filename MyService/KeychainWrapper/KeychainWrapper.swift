@@ -21,7 +21,7 @@ public struct KeychainWrapper {
 
     public func setRef(_ data: Data,
                        forAccount account: String,
-                       accessControl: SecAccessControl? = nil) throws {
+                       isHighSecured: Bool = true) throws {
         do {
             guard let cert = SecCertificateCreateWithData(nil, data as CFData) else {
                 throw WrapperError.stringToDataError
@@ -30,7 +30,7 @@ public struct KeychainWrapper {
             let updateValue = [kSecValueRef.toString: cert]
             try addOrUpdate(data,
                             forAccount: account,
-                            accessControl: accessControl,
+                            isHighSecured: isHighSecured,
                             updateData: updateValue)
             
         } catch {
@@ -41,16 +41,12 @@ public struct KeychainWrapper {
     /// Set value
     /// - Parameter value: Value like to be stored into keychain.
     /// - Parameter account: Used to identifier the item.
-    /// - Parameter accessControl:
-    ///                 1) When unlocked - kSecAttrAccessibleWhenUnlocked,
-    ///                 2) While locked - N/A,
-    ///                 3) After first unlock - kSecAttrAccessibleAfterFirstUnlock,
-    ///                 4) Always - kSecAttrAccessibleAlways,
-    ///                 5) Passcode enabled - kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
+    /// - Parameter isHighSecured: Whether enable ACL and keychain entries protection.
     /// */
     public func setValue(_ value: String,
                          forAccount account: String,
-                         accessControl: SecAccessControl? = nil) throws {
+                         isHighSecured: Bool = true,
+                         isForceAdd: Bool = true) throws {
         
         do {
             guard let encodedData = value.data(using: .utf8) else {
@@ -61,7 +57,7 @@ public struct KeychainWrapper {
             attributesToUpdate[kSecValueData.toString] = encodedData
             try addOrUpdate(value,
                             forAccount: account,
-                            accessControl: accessControl,
+                            isHighSecured: true,
                             updateData: attributesToUpdate)
 
         } catch {
@@ -69,33 +65,54 @@ public struct KeychainWrapper {
         }
     }
     
-    fileprivate func addOrUpdate(_ data: Any,
-                                 forAccount account: String,
-                                 accessControl: SecAccessControl? = nil,
-                                 updateData: [String: Any]) throws {
-
-        let query = queryable.getquery
-        let status = SecItemCopyMatching(query.toCFDictionary, nil)
-
-        switch status {
-        case errSecSuccess:
-            let addquery = try queryable.addquery(data, account: account, accessControl: accessControl)
-            let addstatus = SecItemUpdate(addquery.toCFDictionary,
-                                   updateData.toCFDictionary)
-
-            if addstatus == errSecItemNotFound {
-                fallthrough
-            } else if addstatus != errSecSuccess {
+    /// Add new value for account no matter if here is existing data.
+    /// - Parameter data: Data would be stored into keychain.
+    /// - Parameter account: Store data for account.
+    /// - Parameter isHighSecured: Whether enable ACL and keychain entries protection.
+    fileprivate func forceAdd(_ data: Any,
+                              forAccount account: String,
+                              isHighSecured: Bool) throws {
+        let addquery = try queryable.addquery(data, account: account, isHighSecured: isHighSecured)
+        let addstatus = SecItemAdd(addquery.toCFDictionary, nil)
+        
+        if addstatus == errSecDuplicateItem {
+            do {
+                try removeValue(for: account)
+            } catch {
                 throw WrapperError.error(from: addstatus)
             }
-        case errSecItemNotFound:
-            let addquery = try queryable.addquery(data, account: account, accessControl: accessControl)
             let addstatus = SecItemAdd(addquery.toCFDictionary, nil)
+            
             if addstatus != errSecSuccess {
                 throw WrapperError.error(from: addstatus)
             }
-        default:
-            throw WrapperError.failed
+        } else if addstatus != errSecSuccess {
+            throw WrapperError.error(from: addstatus)
+        }
+    }
+
+    /// Add value to accout, update value if here is existing value.
+    /// - Parameter data: Data would be stored into keychain.
+    /// - Parameter account: Store data for account.
+    /// - Parameter isHighSecured: Whether enable ACL and keychain entries protection.
+    /// - Parameter updateData: Data to updated to the existing value.
+    fileprivate func addOrUpdate(_ data: Any,
+                                 forAccount account: String,
+                                 isHighSecured: Bool = true,
+                                 updateData: [String: Any]) throws {
+
+        let addquery = try queryable.addquery(data, account: account, isHighSecured: isHighSecured)
+        let addstatus = SecItemAdd(addquery.toCFDictionary, nil)
+        
+        if addstatus == errSecDuplicateItem {
+            let addstatus = SecItemUpdate(addquery.toCFDictionary,
+                                          updateData.toCFDictionary)
+            
+            if addstatus != errSecSuccess {
+                throw WrapperError.error(from: addstatus)
+            }
+        } else if addstatus != errSecSuccess {
+            throw WrapperError.error(from: addstatus)
         }
     }
 
@@ -190,13 +207,13 @@ public struct KeychainWrapper {
 
     public func setData(_ data: Data,
                         forAccount account: String,
-                        accessControl: SecAccessControl? = nil) throws {
+                        isHighSecured: Bool = true) throws {
         do {
             var attributesToUpdate = [String: Any]()
             attributesToUpdate[kSecValueData.toString] = data
             try addOrUpdate(data,
                             forAccount: account,
-                            accessControl: accessControl,
+                            isHighSecured: isHighSecured,
                             updateData: attributesToUpdate)
 
         } catch {

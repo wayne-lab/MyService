@@ -35,6 +35,10 @@ extension ArchiveQueryable: KeychainItemQueryable {
 }
 
 extension ArchiveQueryable: KeychainItemStorable {
+    public func addquery(_ value: Any, account: String, isHighSecured: Bool) throws -> [String : Any] {
+        return [:]
+    }
+    
     public func addquery(_ value: Any,
                          account: String,
                          accessControl: SecAccessControl? = nil) throws -> [String: Any] {
