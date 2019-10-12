@@ -18,7 +18,7 @@ after_install:
 os:
   - osx
 osx_image:
-  - xcode11.0
+  - xcode11
 language:
   - swift
 before_script:
