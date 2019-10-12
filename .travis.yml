@@ -10,10 +10,10 @@ after_install:
 os:
   - osx
 osx_image:
-  - xcode10.2
+  - xcode11.0
 language:
   - swift
 script:
-  - bundle exec fastlane scan
+  - bundle exec fastlane scan -s MyServiceDemo
   - bundle exec danger
   - swiftlint
