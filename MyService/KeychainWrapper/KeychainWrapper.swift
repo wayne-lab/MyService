@@ -55,11 +55,16 @@ public struct KeychainWrapper {
 
             var attributesToUpdate = [String: Any]()
             attributesToUpdate[kSecValueData.toString] = encodedData
-            try addOrUpdate(value,
-                            forAccount: account,
-                            isHighSecured: true,
-                            updateData: attributesToUpdate)
-
+            if isForceAdd == true {
+                try forceAdd(value,
+                             forAccount: account,
+                             isHighSecured: true)
+            } else {
+                try addOrUpdate(value,
+                                forAccount: account,
+                                isHighSecured: true,
+                                updateData: attributesToUpdate)
+            }
         } catch {
             throw error
         }

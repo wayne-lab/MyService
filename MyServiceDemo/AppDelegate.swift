@@ -9,14 +9,22 @@
 import UIKit
 import MyService
 
+class DemoQueryable {
+    static let shared = GenericPasswordQueryable(service: Bundle.main.bundleIdentifier!)
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let genericPassword = GenericPasswordQueryable(service: "test")
-        let keychainWrapper = KeychainWrapper(queryable: genericPassword)
+
+        // Clear cached data everytime demo app launched.
+        let keychainWrapper = KeychainWrapper(queryable: DemoQueryable.shared)
         try? keychainWrapper.removeAll()
+        if let bundleId = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundleId)
+        }
         return true
     }
 

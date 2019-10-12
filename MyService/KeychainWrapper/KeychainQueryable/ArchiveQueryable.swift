@@ -41,15 +41,14 @@ extension ArchiveQueryable: KeychainItemStorable {
         guard let data = value as? Data else {
             throw WrapperError.stringToDataError
         }
+        var query = getquery
+        query[kSecAttrAccount.toString] = account
+        query[kSecValueData.toString] = data
         #if !targetEnvironment(simulator)
         if isHighSecured == true {
             query[kSecAttrAccessControl.toString] = accessControl()
         }
         #endif
-        var query = getquery
-        query[kSecAttrAccount.toString] = account
-        query[kSecValueData.toString] = data
-        
         return query
     }
 }

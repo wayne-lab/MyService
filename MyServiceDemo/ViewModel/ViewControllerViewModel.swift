@@ -95,8 +95,8 @@ class ViewControllerViewModel {
     
     func save(completeHandler: @escaping (_ isSuccess: Bool) -> Void) {
         print("\(email) - \(password)")
-        let genericPassword = GenericPasswordQueryable(service: "test")
-        let keychainWrapper = KeychainWrapper(queryable: genericPassword)
+        
+        let keychainWrapper = KeychainWrapper(queryable: DemoQueryable.shared)
         do {
             try keychainWrapper.setValue(password, forAccount: email)
             UserDefaults.standard.set(true, forKey: email)
@@ -109,8 +109,7 @@ class ViewControllerViewModel {
     
     func retrieve() -> String {
         print("\(email) - \(password)")
-        let genericPassword = GenericPasswordQueryable(service: "test")
-        let keychainWrapper = KeychainWrapper(queryable: genericPassword)
+        let keychainWrapper = KeychainWrapper(queryable: DemoQueryable.shared)
         do {
             guard let value = try keychainWrapper.getValue(for: email) else {
                 print("Not Found")

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0B95D8E2255201F00A40158"
-               BuildableName = "MyService.framework"
-               BlueprintName = "MyService"
+               BlueprintIdentifier = "A6BA111B233E2C6E00A81A94"
+               BuildableName = "MyServiceDemo.app"
+               BlueprintName = "MyServiceDemo"
                ReferencedContainer = "container:MyService.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,16 +27,27 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0B95D8E2255201F00A40158"
-            BuildableName = "MyService.framework"
-            BlueprintName = "MyService"
-            ReferencedContainer = "container:MyService.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A6BA1130233E2C6F00A81A94"
+               BuildableName = "MyServiceDemoTests.xctest"
+               BlueprintName = "MyServiceDemoTests"
+               ReferencedContainer = "container:MyService.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B0B95D972255202000A40158"
+               BuildableName = "MyServiceTests.xctest"
+               BlueprintName = "MyServiceTests"
+               ReferencedContainer = "container:MyService.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -49,15 +60,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0B95D8E2255201F00A40158"
-            BuildableName = "MyService.framework"
-            BlueprintName = "MyService"
+            BlueprintIdentifier = "A6BA111B233E2C6E00A81A94"
+            BuildableName = "MyServiceDemo.app"
+            BlueprintName = "MyServiceDemo"
             ReferencedContainer = "container:MyService.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -65,15 +77,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0B95D8E2255201F00A40158"
-            BuildableName = "MyService.framework"
-            BlueprintName = "MyService"
+            BlueprintIdentifier = "A6BA111B233E2C6E00A81A94"
+            BuildableName = "MyServiceDemo.app"
+            BlueprintName = "MyServiceDemo"
             ReferencedContainer = "container:MyService.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

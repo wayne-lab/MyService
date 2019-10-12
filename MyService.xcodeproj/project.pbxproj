@@ -69,6 +69,13 @@
 			remoteGlobalIDString = B0B95D8E2255201F00A40158;
 			remoteInfo = MyService;
 		};
+		A6C059DA2351D9AF00F54A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0B95D862255201F00A40158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6BA111B233E2C6E00A81A94;
+			remoteInfo = MyServiceDemo;
+		};
 		B0B95D9A2255202000A40158 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0B95D862255201F00A40158 /* Project object */;
@@ -213,12 +220,8 @@
 			children = (
 				A6BA111E233E2C6E00A81A94 /* AppDelegate.swift */,
 				A6BA1120233E2C6E00A81A94 /* SceneDelegate.swift */,
-				A6BA1122233E2C6E00A81A94 /* ViewController.swift */,
-				A6C059CD234F39F500F54A6D /* ViewControllerViewModel.swift */,
-				A6984092234F35A000F25FB1 /* TextFieldCell.xib */,
-				A6984093234F35A000F25FB1 /* TextFieldCell.swift */,
-				A6C059CF234F7ACA00F54A6D /* SubmitCell.xib */,
-				A6C059D0234F7ACA00F54A6D /* SubmitCell.swift */,
+				A6C059D82351D5DE00F54A6D /* View */,
+				A6C059D92351D5E400F54A6D /* ViewModel */,
 				A6BA1124233E2C6E00A81A94 /* Main.storyboard */,
 				A6BA1127233E2C6E00A81A94 /* Assets.xcassets */,
 				A6BA1129233E2C6E00A81A94 /* LaunchScreen.storyboard */,
@@ -252,6 +255,26 @@
 				A6BA1146234095B200A81A94 /* IdentityQueryable.swift */,
 			);
 			path = KeychainQueryable;
+			sourceTree = "<group>";
+		};
+		A6C059D82351D5DE00F54A6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A6BA1122233E2C6E00A81A94 /* ViewController.swift */,
+				A6984092234F35A000F25FB1 /* TextFieldCell.xib */,
+				A6984093234F35A000F25FB1 /* TextFieldCell.swift */,
+				A6C059CF234F7ACA00F54A6D /* SubmitCell.xib */,
+				A6C059D0234F7ACA00F54A6D /* SubmitCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A6C059D92351D5E400F54A6D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A6C059CD234F39F500F54A6D /* ViewControllerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B0B95D852255201F00A40158 = {
@@ -395,6 +418,7 @@
 			);
 			dependencies = (
 				B0B95D9B2255202000A40158 /* PBXTargetDependency */,
+				A6C059DB2351D9AF00F54A6D /* PBXTargetDependency */,
 			);
 			name = MyServiceTests;
 			productName = MyServiceTests;
@@ -424,6 +448,7 @@
 					};
 					B0B95D972255202000A40158 = {
 						CreatedOnToolsVersion = 10.2;
+						TestTargetID = A6BA111B233E2C6E00A81A94;
 					};
 				};
 			};
@@ -579,6 +604,11 @@
 			target = B0B95D8E2255201F00A40158 /* MyService */;
 			targetProxy = A6C059D523508DAF00F54A6D /* PBXContainerItemProxy */;
 		};
+		A6C059DB2351D9AF00F54A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6BA111B233E2C6E00A81A94 /* MyServiceDemo */;
+			targetProxy = A6C059DA2351D9AF00F54A6D /* PBXContainerItemProxy */;
+		};
 		B0B95D9B2255202000A40158 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B0B95D8E2255201F00A40158 /* MyService */;
@@ -650,6 +680,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				INFOPLIST_FILE = MyServiceDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -671,6 +702,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				INFOPLIST_FILE = MyServiceDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -876,9 +908,10 @@
 			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				INFOPLIST_FILE = MyServiceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -890,6 +923,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyServiceDemo.app/MyServiceDemo";
 			};
 			name = Debug;
 		};
@@ -898,9 +932,10 @@
 			baseConfigurationReference = B0B95DB022566E5000A40158 /* MyService.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 94MBHXKUB6;
 				INFOPLIST_FILE = MyServiceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -912,6 +947,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyServiceDemo.app/MyServiceDemo";
 			};
 			name = Release;
 		};
