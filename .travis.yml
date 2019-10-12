@@ -10,8 +10,8 @@ before_install:
   # - brew outdated carthage || brew upgrade carthage
   # - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds
 install:
-#  - brew install swiftlint
-#  - bundle update
+ - brew install swiftlint
+ - bundle update
 after_install:
 
 os:
