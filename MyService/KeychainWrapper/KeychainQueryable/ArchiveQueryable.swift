@@ -35,17 +35,17 @@ extension ArchiveQueryable: KeychainItemQueryable {
 }
 
 extension ArchiveQueryable: KeychainItemStorable {
-    public func addquery(_ value: Any, account: String, isHighSecured: Bool) throws -> [String : Any] {
-        return [:]
-    }
-    
     public func addquery(_ value: Any,
                          account: String,
-                         accessControl: SecAccessControl? = nil) throws -> [String: Any] {
+                         isHighSecured: Bool) throws -> [String: Any] {
         guard let data = value as? Data else {
-                throw WrapperError.stringToDataError
+            throw WrapperError.stringToDataError
         }
-        
+        #if !targetEnvironment(simulator)
+        if isHighSecured == true {
+            query[kSecAttrAccessControl.toString] = accessControl()
+        }
+        #endif
         var query = getquery
         query[kSecAttrAccount.toString] = account
         query[kSecValueData.toString] = data

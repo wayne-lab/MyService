@@ -38,8 +38,16 @@ public protocol KeychainItemQueryable {
 public protocol KeychainItemStorable {
     func addquery(_ value: Any,
                   account: String,
-                  accessControl: SecAccessControl?) throws -> [String: Any]
-    func addquery(_ value: Any,
-                  account: String,
                   isHighSecured: Bool) throws -> [String: Any]
+}
+
+extension KeychainItemStorable {
+    func accessControl() -> SecAccessControl? {
+        var error: Unmanaged<CFError>?
+        let access = SecAccessControlCreateWithFlags(nil,
+                                                     kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
+                                                     .userPresence, &error)
+        precondition(access != nil, "SecAccessControlCreateWithFlags failed")
+        return access
+    }
 }

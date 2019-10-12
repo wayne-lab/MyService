@@ -59,23 +59,23 @@ extension InternetPasswordQueryable: KeychainItemQueryable {
 }
 
 extension InternetPasswordQueryable: KeychainItemStorable {
-    public func addquery(_ value: Any, account: String, isHighSecured: Bool) throws -> [String : Any] {
-        return [:]
-    }
-    
     public func addquery(_ value: Any,
                          account: String,
-                         accessControl: SecAccessControl? = nil) throws -> [String: Any] {
+                         isHighSecured: Bool) throws -> [String: Any] {
         guard let stringValue = value as? String,
             let encodedData = stringValue.data(using: .utf8) else {
             throw WrapperError.stringToDataError
         }
         
         var query = getquery
+        #if !targetEnvironment(simulator)
+        if isHighSecured == true {
+            query[kSecAttrAccessControl.toString] = accessControl()
+        }
+        #endif
         query[kSecAttrAccount.toString] = account
         query[kSecValueData.toString] = encodedData
         
         return query
     }
-    
 }

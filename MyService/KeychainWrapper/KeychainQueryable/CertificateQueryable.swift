@@ -36,24 +36,25 @@ extension CertificateQueryable: KeychainItemQueryable {
 }
 
 extension CertificateQueryable: KeychainItemStorable {
-    public func addquery(_ value: Any, account: String, isHighSecured: Bool) throws -> [String : Any] {
-        return [:]
-    }
-    
     public func addquery(_ value: Any,
                          account: String,
-                         accessControl: SecAccessControl?) throws -> [String: Any] {
-        
+                         isHighSecured: Bool) throws -> [String: Any] {
         guard let data = value as? Data,
             let cert = SecCertificateCreateWithData(nil, data as CFData) else {
                 throw WrapperError.certificateGenerateError
         }
         
-        let query =
+        var query =
             [
                 kSecClass.toString: kSecClassCertificate,
                 kSecValueRef.toString: cert,
                 kSecAttrLabel.toString: account] as [String: Any]
+        
+        #if !targetEnvironment(simulator)
+        if isHighSecured == true {
+            query[kSecAttrAccessControl.toString] = accessControl()
+        }
+        #endif
         
         return query
     }

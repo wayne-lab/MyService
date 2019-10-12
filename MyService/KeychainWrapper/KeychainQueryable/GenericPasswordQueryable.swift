@@ -40,7 +40,9 @@ extension GenericPasswordQueryable: KeychainItemQueryable {
 }
 
 extension GenericPasswordQueryable: KeychainItemStorable {
-    public func addquery(_ value: Any, account: String, isHighSecured: Bool = true) throws -> [String : Any] {
+    public func addquery(_ value: Any,
+                         account: String,
+                         isHighSecured: Bool = true) throws -> [String: Any] {
         guard let stringValue = value as? String,
             let encodedData = stringValue.data(using: .utf8) else {
                 throw WrapperError.stringToDataError
@@ -49,35 +51,8 @@ extension GenericPasswordQueryable: KeychainItemStorable {
         var query = getquery
         #if !targetEnvironment(simulator)
         if isHighSecured == true {
-            var error: Unmanaged<CFError>?
-            let access = SecAccessControlCreateWithFlags(nil,
-                                                         kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
-                                                         .userPresence, &error)
-            precondition(access != nil, "SecAccessControlCreateWithFlags failed")
-            query[kSecAttrAccessControl.toString] = access
+            query[kSecAttrAccessControl.toString] = accessControl()
         }
-        #endif
-        query[kSecAttrAccount.toString] = account
-        query[kSecValueData.toString] = encodedData
-        return query
-    }
-    
-    public func addquery(_ value: Any,
-                         account: String,
-                         accessControl: SecAccessControl? = nil) throws -> [String: Any] {
-        guard let stringValue = value as? String,
-            let encodedData = stringValue.data(using: .utf8) else {
-                throw WrapperError.stringToDataError
-        }
-
-        var query = getquery
-        #if !targetEnvironment(simulator)
-        var error: Unmanaged<CFError>?
-        let access = SecAccessControlCreateWithFlags(nil,
-                                                     kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
-                                                     .userPresence, &error)
-        precondition(access != nil, "SecAccessControlCreateWithFlags failed")
-        query[kSecAttrAccessControl.toString] = access
         #endif
         query[kSecAttrAccount.toString] = account
         query[kSecValueData.toString] = encodedData
